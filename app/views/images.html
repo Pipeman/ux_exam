@@ -1,0 +1,28 @@
+<div ng-switch on="images.step">
+    <div class="ready row"
+         ng-switch-when="0">
+        <div class="col-sm-12 text-center">
+            <a ng-click="images.viewChanger()">Quando sei pronto ad iniziare clicka qui</a>
+        </div>
+    </div>
+
+    <div class="set row" ng-switch-when="1">
+        <div class="col-sm-12 text-center">
+            <h2 class="countdown">{{images.missingSeconds}}</h2>
+        </div>
+    </div>
+
+    <div class="go" ng-switch-when="2">
+        <img class="screenshot"
+             ng-src="images/{{images.src}}">
+    </div>
+
+    <div class="results" ng-switch-when="3">
+        <h3>Tutto molto bello!</h3>
+
+        <button class="btn"
+                ng-click="images.viewChanger()">
+            Prossimo
+        </button>
+    </div>
+</div>
