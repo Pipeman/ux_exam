@@ -10,22 +10,50 @@
 
 angular.module('uxExam').controller('ImagesCtrl', ImagesCtrl);
 
+ImagesCtrl.$inject = ['$interval', '$sce'];
 
-function ImagesCtrl ($interval) {
+function ImagesCtrl ($interval, $sce) {
     var vm = this;
+
+    /**
+        {
+            imageUrl: "",
+            formItId: "",
+            formEngId: ""
+        },
+    */
     var images = [
-        "screen1.png",
-        "screen2.png",
-        "screen3.png",
-        "screen4.png"
+        {
+            imageSrc: "screen1.png",
+            formItId: "",
+            formEngId: "14nB_QgI1GCsWaPih3v2Iqq-J3lcYMlzWouOilLjtn28"
+        },
+        {
+            imageSrc: "screen2.png",
+            formItId: "",
+            formEngId: "1iRmzMPf3Tqos086QuJ6e46otra8d2S2ZsG_NLpckIm8"
+        },
+        {
+            imageSrc: "screen3.png",
+            formItId: "",
+            formEngId: "1XvzV-ebGLtP7KVRAZ5bDtfFqudZ0vmtCoD8gqA35G8g"
+        },
+        {
+            imageSrc: "screen4.png",
+            formItId: "",
+            formEngId: "1g0aB7XhcCQvPDs6gAOAcJ1MzUmbooNGKPH8ufjXJ2zM"
+        }
     ];
     var maxSteps = 3;
     var pointer = 0;
     var cntSeconds = 3;
 
     vm.step = 0;
-    vm.src = "";
+    vm.imageSrc = "";
+    vm.formSrc = "";
     vm.missingSeconds = 0;
+
+
 
     vm.viewChanger = viewChanger;
 
@@ -34,7 +62,7 @@ function ImagesCtrl ($interval) {
     function viewChanger () {
         if (vm.step != maxSteps){
             vm.step++;
-            vm.src = images[pointer];
+            vm.imageSrc = images[pointer].imageSrc;
             countdown();
         } else {
             vm.step = 0;
@@ -57,13 +85,13 @@ function ImagesCtrl ($interval) {
 
     function imageViewer () {
         $interval(function () {
-            pointer++;
-            vm.step++;
             questionnaire();
         }, 500, 1);
     }
 
     function questionnaire () {
-        console.log("tutto molto bello");
+        vm.formSrc = $sce.trustAsResourceUrl("https://docs.google.com/forms/d/" + images[pointer].formEngId + "/viewform?embedded=true");
+        pointer++;
+        vm.step++;
     }
 }

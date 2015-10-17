@@ -14,11 +14,13 @@
 
     <div class="go" ng-switch-when="2">
         <img class="screenshot"
-             ng-src="images/{{images.src}}">
+             ng-src="images/{{images.imageSrc}}">
     </div>
 
     <div class="results" ng-switch-when="3">
         <h3>Tutto molto bello!</h3>
+
+        <iframe ng-src="{{images.formSrc}}" width="760" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
         <button class="btn"
                 ng-click="images.viewChanger()">

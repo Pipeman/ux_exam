@@ -17,7 +17,7 @@ angular
         'ngSanitize',
         'ngTouch'
     ])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, $sceDelegateProvider) {
         $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -37,4 +37,11 @@ angular
         .otherwise({
             redirectTo: '/'
         });
+
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'https://docs.google.com/forms/'
+        ]);
     });
