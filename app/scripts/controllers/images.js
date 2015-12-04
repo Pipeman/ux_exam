@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -8,57 +8,49 @@
  * Controller of the uxExam
  */
 
-angular.module('uxExam').controller('ImagesCtrl', ImagesCtrl);
+angular.module("uxExam").controller("ImagesCtrl", ImagesCtrl);
 
-ImagesCtrl.$inject = ['$interval', '$sce'];
+ImagesCtrl.$inject = ["$interval", "$sce", "ImagesSrv", "preloaderSrv"];
 
-function ImagesCtrl ($interval, $sce) {
+function ImagesCtrl ($interval, $sce, ImagesSrv, preloaderSrv) {
     var vm = this;
 
-    /**
-        {
-            imageUrl: "",
-            formItId: "",
-            formEngId: ""
-        },
-    */
-    var images = [
-        {
-            imageSrc: "screen1.png",
-            formItId: "",
-            formEngId: "14nB_QgI1GCsWaPih3v2Iqq-J3lcYMlzWouOilLjtn28"
-        },
-        {
-            imageSrc: "screen2.png",
-            formItId: "",
-            formEngId: "1iRmzMPf3Tqos086QuJ6e46otra8d2S2ZsG_NLpckIm8"
-        },
-        {
-            imageSrc: "screen3.png",
-            formItId: "",
-            formEngId: "1XvzV-ebGLtP7KVRAZ5bDtfFqudZ0vmtCoD8gqA35G8g"
-        },
-        {
-            imageSrc: "screen4.png",
-            formItId: "",
-            formEngId: "1g0aB7XhcCQvPDs6gAOAcJ1MzUmbooNGKPH8ufjXJ2zM"
-        }
-    ];
+    // VARIABLES INITIALIZATION
     var maxSteps = 3;
     var pointer = 0;
     var cntSeconds = 3;
+    var images = ImagesSrv.beautifulImages;
 
+    // SCOPE VARIABLES DEFINITION
     vm.step = 0;
     vm.imageSrc = "";
     vm.formSrc = "";
     vm.missingSeconds = 0;
+    vm.isLoading = true;
+    vm.isSuccessful = false;
 
-
-
-    vm.viewChanger = viewChanger;
+    // SCOPE FUNCTION DEFINITION
+    preloaderSrv.
+        preloadImages(images).
+        then(
+            function handleResolve (imageLocations) {
+                // Loading was successful.
+                vm.isLoading = false;
+                vm.isSuccessful = true;
+                vm.viewChanger = viewChanger;
+            },
+            function handleReject (imageLocation) {
+                // Loading failed on at least one image.
+                vm.isLoading = false;
+                vm.isSuccessful = false;
+                console.error("Image Failed", imageLocation);
+                console.info("Preload Failure");
+            }
+        );
 
     return vm;
 
+    // FUNCTION DEFINITION
     function viewChanger () {
         if (vm.step != maxSteps){
             vm.step++;
@@ -75,7 +67,6 @@ function ImagesCtrl ($interval, $sce) {
         $interval(function () {
             seconds--;
             vm.missingSeconds = seconds;
-            console.log(seconds);
             if (seconds === 0) {
                 vm.step++;
                 imageViewer();
@@ -90,7 +81,7 @@ function ImagesCtrl ($interval, $sce) {
     }
 
     function questionnaire () {
-        vm.formSrc = $sce.trustAsResourceUrl("https://docs.google.com/forms/d/" + images[pointer].formEngId + "/viewform?embedded=true");
+        vm.formSrc = $sce.trustAsResourceUrl("https://docs.google.com/forms/d/" + images[pointer].formItId + "/viewform?embedded=true");
         pointer++;
         vm.step++;
     }
