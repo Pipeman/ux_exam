@@ -55,6 +55,7 @@ function ImagesCtrl ($interval, $sce, ImagesSrv, preloaderSrv) {
         if (vm.step != maxSteps){
             vm.step++;
             vm.imageSrc = images[pointer].imageSrc;
+            console.log(vm.imageSrc);
             countdown();
         } else {
             vm.step = 0;

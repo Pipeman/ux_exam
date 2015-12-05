@@ -1,28 +1,24 @@
 <div ng-if="images.isLoading">
     <p class="text-center">Caricamento immagini in corso...</p>
 </div>
-<div class="row" ng-if="!images.isLoading">
-    <div class="ready col-sm-12 container"
+<div class="parent-container"
+     ng-if="!images.isLoading"
+     ng-hide="images.step == 2">
+    <div class="ready container"
          ng-if="images.step == 0">
         <div class="text-center">
             <a class="btn btn-primary" ng-click="images.viewChanger()">Quando sei pronto ad iniziare clicka qui</a>
         </div>
     </div>
 
-    <div class="set col-sm-12 container"
+    <div class="set container"
          ng-if="images.step == 1">
         <div class="text-center">
             <h2 class="countdown">{{images.missingSeconds}}</h2>
         </div>
     </div>
 
-    <div class="go col-sm-12"
-         ng-if="images.step == 2 && images.isSuccessful">
-        <img class="screenshot"
-             ng-src="{{images.imageSrc}}">
-    </div>
-
-    <div class="results col-sm-12 text-center"
+    <div class="results text-center"
          ng-if="images.step == 3">
         <h3>Rispondi al questionario</h3>
 
@@ -40,4 +36,10 @@
             Prossimo
         </button>
     </div>
+</div>
+
+<div class="go"
+     ng-if="images.step == 2 && images.isSuccessful">
+    <img class="screenshot"
+         ng-src="{{images.imageSrc}}">
 </div>
