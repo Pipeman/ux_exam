@@ -4,14 +4,14 @@
 <div class="parent-container"
      ng-if="!images.isLoading"
      ng-hide="images.step == 2">
-    <div class="ready container"
+    <div class="ready step-container"
          ng-if="images.step == 0">
         <div class="text-center">
             <a class="btn btn-primary" ng-click="images.viewChanger()">Quando sei pronto ad iniziare clicka qui</a>
         </div>
     </div>
 
-    <div class="set container"
+    <div class="set step-container"
          ng-if="images.step == 1">
         <div class="text-center">
             <h2 class="countdown">{{images.missingSeconds}}</h2>
@@ -25,13 +25,15 @@
         <div>
             <iframe ng-src="{{images.formSrc}}"
                     width="760"
-                    height="700"
+                    height="1400"
                     frameborder="0"
                     marginheight="0"
                     marginwidth="0">Loading...</iframe>
         </div>
 
-        <button class="btn btn-primary"
+        <p><strong>Ricordati di inviare il questionario prima di procedere</strong></p>
+
+        <button class="btn btn-default"
                 ng-click="images.viewChanger()">
             Prossimo
         </button>

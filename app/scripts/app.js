@@ -24,12 +24,12 @@ angular
         //     controller: 'MainCtrl',
         //     controllerAs: 'main'
         // })
-        // .when('/about', {
-        //     templateUrl: 'views/about.html',
-        //     controller: 'AboutCtrl',
-        //     controllerAs: 'about'
-        // })
         .when('/', {
+            templateUrl: 'views/about.html',
+            controller: 'AboutCtrl',
+            controllerAs: 'about'
+        })
+        .when('/images', {
             templateUrl: 'views/images.html',
             controller: 'ImagesCtrl',
             controllerAs: 'images'

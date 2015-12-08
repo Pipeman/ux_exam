@@ -1,7 +1,7 @@
 $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
-// bower:scss
+// bo wer:scss
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
-// endbower
+// end bower
 @import 'variables';
 
 .browsehappy {
@@ -107,7 +107,7 @@ body {
     height: 100vh;
 }
 
-.container {
+.step-container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -116,4 +116,47 @@ body {
 
 .countdown {
     margin-top: 0;
+}
+
+.bs-callout {
+    border: 1px solid $gray-3;
+    border-left-width: 5px;
+    border-radius: 3px;
+    margin: 20px 0;
+    padding: 20px;
+
+    h4 {
+        color: $gold-1;
+    }
+}
+
+.bs-callout-warning {
+    border-left-color: $gold-1;
+}
+
+.jfk-button {
+    border-radius: 2px;
+    cursor: default;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 27px;
+    line-height: 27px;
+    min-width: 54px;
+    outline: 0;
+    padding: 0 15px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.jfk-button-action {
+    background-color: $form-azure-1;
+    background-image: linear-gradient(top, $form-azure-1, $form-azure-2);
+    border: 1px solid $form-azure-3;
+    box-shadow: none;
+    color: $white;
+}
+
+.divide100 {
+    margin-top: 100px;
 }
