@@ -82,7 +82,7 @@ function ImagesCtrl ($interval, $sce, ImagesSrv, preloaderSrv) {
     }
 
     function questionnaire () {
-        vm.formSrc = $sce.trustAsResourceUrl("https://docs.google.com/forms/d/" + images[pointer].formItId + "/viewform?embedded=true");
+        vm.formSrc = $sce.trustAsResourceUrl("https://docs.google.com/forms/d/" + images[pointer].formPhase1Id + "/viewform?embedded=true");
         pointer++;
         vm.step++;
     }

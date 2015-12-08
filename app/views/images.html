@@ -1,7 +1,7 @@
 <div ng-if="images.isLoading">
     <p class="text-center">Caricamento immagini in corso...</p>
 </div>
-<div class="parent-container"
+<div class="container parent-container"
      ng-if="!images.isLoading"
      ng-hide="images.step == 2">
     <div class="ready step-container"
@@ -25,18 +25,22 @@
         <div>
             <iframe ng-src="{{images.formSrc}}"
                     width="760"
-                    height="1400"
+                    height="800"
                     frameborder="0"
                     marginheight="0"
                     marginwidth="0">Loading...</iframe>
         </div>
 
-        <p><strong>Ricordati di inviare il questionario prima di procedere</strong></p>
+        <div class="divide100">
+            <h4>Ricordati di inviare il questionario prima di procedere</h4>
 
-        <button class="btn btn-default"
-                ng-click="images.viewChanger()">
-            Prossimo
-        </button>
+            <button class="btn btn-default"
+                    ng-click="images.viewChanger()">
+                Prossimo
+            </button>
+        </div>
+
+        <div class="divide100"></div>
     </div>
 </div>
 
