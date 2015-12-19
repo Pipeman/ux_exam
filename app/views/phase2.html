@@ -1,0 +1,47 @@
+<div class="container parent-container"
+     ng-hide="vm.step == 1">
+    <div class="ready step-container"
+         ng-if="vm.step == 0">
+        <div class="text-center">
+            <p>Sei uno studente che ha deciso di cambiare università e stai cercando l'università migliore per gli studi di Ingegneria che hai deciso di intraprendere.</p>
+            <p ng-if="vm.goalMode">Devi cercare informazioni sulla facoltà di ingegneria dell'università di cui stai vedendo la homepage</p>
+            <a class="btn btn-primary" ng-click="vm.imageViewer()">Quando sei pronto ad iniziare clicca qui</a>
+        </div>
+    </div>
+
+    <div class="results text-center"
+         ng-if="vm.step == 2">
+        <h3>Rispondi al questionario</h3>
+
+        <div>
+            <iframe ng-src="{{vm.formSrc}}"
+                    width="760"
+                    height="800"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">Loading...</iframe>
+        </div>
+
+        <div class="divide100">
+            <h4>Ricordati di inviare il questionario prima di procedere</h4>
+
+            <button class="btn btn-default"
+                    ng-click="vm.viewChanger()">
+                Prossimo
+            </button>
+        </div>
+
+        <div class="divide100"></div>
+    </div>
+</div>
+
+<div class="go"
+     ng-if="vm.step == 1 && vm.isSuccessful">
+    <img class="screenshot"
+         ng-src="{{vm.imageSrc}}">
+
+    <button class="btn btn-default"
+         ng-click="vm.questionnaire()">
+        Vai al questionario
+    </button>
+</div>

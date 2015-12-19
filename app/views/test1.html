@@ -2,16 +2,26 @@
      ng-if="vm.step == -1">
     <div class="row">
         <div class="col-sm-12">
-            <h2 class="text-center">Inizio fase 1</h2>
-            <p>Adesso inizia l'esperimento vero e proprio. Lo svolgimento è
-                identico a quello del test appena completato.</p>
+            <h2 class="text-center">Test della fase 1</h2>
+            <p>Adesso ti verranno mostrate 10 immagini di test che
+                servono solamente per farti abituare. Ogni immagine sarà
+                preceduta da un countdown di 3 secondi e verrà visualizzata per
+                0.5 secondi. Al termine della visualizzazione ti sarà mostrato un
+                questionario composto da una domanda; ricordati inviarlo cliccando sul
+                bottone <span class="jfk-button jfk-button-action">Submit</span>
+                prima di procedere all'immagine successiva.</p>
+            <p>Prima del coutdown ti verrà presentato un possibile caso d'uso di
+                un utente reale. Leggilo attentamente e cerca di immedesimarti
+                nell'utente descritto prima di procedere. In questa fase il caso
+                d'uso sarà sempre lo stesso, ma ti verrà presentato sempre per
+                permetterti di rileggerlo nel caso tu ne abbia bisogno.</p>
             <div class="text-center">
-                <a class="btn btn-primary" ng-click="vm.starter()">clicca qui per procedere</a>
+                <a class="btn btn-primary" ng-click="vm.starter()">Clicca qui per procedere</a>
             </div>
         </div>
     </div>
 </div>
-<div ng-if="vm.isLoading && vm-step >= 0">
+<div ng-if="vm.isLoading && vm.step >= 0">
     <p class="text-center">Caricamento immagini in corso...</p>
 </div>
 <div class="container parent-container"
@@ -33,6 +43,7 @@
                 questo motivo.
             </p>
         </div>
+
         <div class="text-center">
             <a class="btn btn-primary" ng-click="vm.viewChanger()">Vai all'immagine {{vm.currentImage}}/{{vm.imagesCount}}</a>
         </div>

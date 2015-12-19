@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc overview
@@ -9,39 +9,49 @@
  * Main module of the application.
  */
 angular
-    .module('uxExam', [
-        'ngAnimate',
-        'ngCookies',
-        'ngResource',
-        'ngRoute',
-        'ngSanitize',
-        'ngTouch'
+    .module("uxExam", [
+        "ngAnimate",
+        "ngCookies",
+        "ngResource",
+        "ngRoute",
+        "ngSanitize",
+        "ngTouch"
     ])
     .config(function ($routeProvider, $sceDelegateProvider) {
         $routeProvider
-        // .when('/', {
-        //     templateUrl: 'views/main.html',
-        //     controller: 'MainCtrl',
-        //     controllerAs: 'main'
-        // })
-        .when('/', {
-            templateUrl: 'views/about.html',
-            controller: 'AboutCtrl',
-            controllerAs: 'about'
+        .when("/home", {
+            templateUrl: "views/about.html",
+            controller: "AboutCtrl",
+            controllerAs: "vm"
         })
-        .when('/images', {
-            templateUrl: 'views/images.html',
-            controller: 'ImagesCtrl',
-            controllerAs: 'images'
+        .when("/home/:beautifulness/:mode", {
+            templateUrl: "views/about.html",
+            controller: "AboutCtrl",
+            controllerAs: "vm"
+        })
+        .when("/test1/:beautifulness/:mode", {
+            templateUrl: "views/test1.html",
+            controller: "Test1Ctrl",
+            controllerAs: "vm"
+        })
+        .when("/images/:beautifulness/:mode", {
+            templateUrl: "views/images.html",
+            controller: "ImagesCtrl",
+            controllerAs: "vm"
+        })
+        .when("/phase2/:beautifulness/:mode", {
+            templateUrl: "views/phase2.html",
+            controller: "Phase2Ctrl",
+            controllerAs: "vm"
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: "/home"
         });
 
         $sceDelegateProvider.resourceUrlWhitelist([
             // Allow same origin resource loads.
-            'self',
+            "self",
             // Allow loading from our assets domain.  Notice the difference between * and **.
-            'https://docs.google.com/forms/'
+            "https://docs.google.com/forms/"
         ]);
     });

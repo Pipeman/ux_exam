@@ -8,9 +8,9 @@
  * Controller of the uxExam
  */
 
-angular.module("uxExam").controller("ImagesCtrl", ImagesCtrl);
+angular.module("uxExam").controller("Test1Ctrl", Test1Ctrl);
 
-ImagesCtrl.$inject = [
+Test1Ctrl.$inject = [
     "$interval",
     "$sce",
     "ImagesSrv",
@@ -19,7 +19,7 @@ ImagesCtrl.$inject = [
     "$location"
 ];
 
-function ImagesCtrl (
+function Test1Ctrl (
     $interval,
     $sce,
     ImagesSrv,
@@ -35,10 +35,10 @@ function ImagesCtrl (
     var cntSeconds = 3;
     var beautifulness = $routeParams.beautifulness;
     var mode = $routeParams.mode;
-    var images = ImagesSrv.getImages(beautifulness);
+    var images = ImagesSrv.getImages("t");
 
     // SCOPE VARIABLES DEFINITION
-    vm.step = 0;
+    vm.step = -1;
     vm.imagesCount = images.length;
     vm.currentImage = pointer + 1;
     vm.imageSrc = "";
@@ -48,7 +48,11 @@ function ImagesCtrl (
     vm.isSuccessful = false;
     vm.mode = mode;
 
+    console.log(mode);
+
     // SCOPE FUNCTION DEFINITION
+    vm.starter = starter;
+
     preloaderSrv.
         preloadImages(images).
         then(
@@ -70,9 +74,14 @@ function ImagesCtrl (
     return vm;
 
     // FUNCTION DEFINITION
+    function starter () {
+        console.log('vm.step');
+        vm.step = 0;
+    }
+
     function viewChanger () {
         if (pointer >= images.length) {
-            $location.url("phase2/" + beautifulness);
+            $location.url("images/" + beautifulness + "/" + mode);
         }
         if (vm.step != maxSteps){
             vm.step++;

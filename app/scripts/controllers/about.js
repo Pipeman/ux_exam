@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -7,14 +7,32 @@
  * # AboutCtrl
  * Controller of the uxExam
  */
-angular.module('uxExam').controller('AboutCtrl', AboutCtrl);
+angular.module("uxExam").controller("AboutCtrl", AboutCtrl);
 
-function AboutCtrl () {
+AboutCtrl.$inject = [
+    "$routeParams"
+];
+
+function AboutCtrl ($routeParams) {
     var vm = this;
+    var beautifulness = $routeParams.beautifulness;
+    var mode = $routeParams.mode;
 
-    vm.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-    ];
+    vm.beautifulness = "";
+    vm.mode = ""
+
+    if (beautifulness == "b" || beautifulness == "u") {
+        vm.beautifulness = beautifulness;
+    } else {
+        // Randomly chooses if to show beauty or ugly images
+        vm.beautifulness = Math.random() < 0.5 ? "b" : "u";
+    }
+
+    if (mode == "a" || mode == "g") {
+        vm.mode = mode;
+    } else {
+        // Randomly chooses if to show beauty or ugly images
+        vm.mode = Math.random() < 0.5 ? "a" : "g";
+    }
+
 }
