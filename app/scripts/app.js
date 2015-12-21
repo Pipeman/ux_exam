@@ -39,10 +39,23 @@ angular
             controller: "ImagesCtrl",
             controllerAs: "vm"
         })
+        .when("/test2/:beautifulness/:mode", {
+            templateUrl: "views/test2.html",
+            controller: "Test2Ctrl",
+            controllerAs: "vm"
+        })
         .when("/phase2/:beautifulness/:mode", {
             templateUrl: "views/phase2.html",
-            controller: "Phase2Ctrl",
+            controller: "PhaseTwoCtrl",
             controllerAs: "vm"
+        })
+        .when("/questions/:beautifulness/:mode", {
+            templateUrl: "views/questions.html",
+            controller: "QuestionsCtrl",
+            controllerAs: "vm"
+        })
+        .when("/thanks", {
+            templateUrl: "views/thanks.html"
         })
         .otherwise({
             redirectTo: "/home"

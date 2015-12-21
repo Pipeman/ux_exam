@@ -8,9 +8,9 @@
  * Controller of the uxExam
  */
 
-angular.module("uxExam").controller("PhaseTwoCtrl", PhaseTwoCtrl);
+angular.module("uxExam").controller("Test2Ctrl", Test2Ctrl);
 
-PhaseTwoCtrl.$inject = [
+Test2Ctrl.$inject = [
     "$interval",
     "$sce",
     "ImagesSrv",
@@ -19,7 +19,7 @@ PhaseTwoCtrl.$inject = [
     "$location"
 ];
 
-function PhaseTwoCtrl (
+function Test2Ctrl (
     $interval,
     $sce,
     ImagesSrv,
@@ -34,11 +34,11 @@ function PhaseTwoCtrl (
     var pointer = 0;
     var beautifulness = $routeParams.beautifulness;
     var mode = $routeParams.mode;
-    var images = ImagesSrv.getImages(beautifulness);
+    var images = ImagesSrv.getImages("t");
 
     // SCOPE VARIABLES DEFINITION
     vm.step = -1;
-    vm.imagesCount = images.length;
+    vm.imagesCount = 1;
     vm.currentImage = pointer + 1;
     vm.imageSrc = "";
     vm.formSrc = "";
@@ -47,10 +47,10 @@ function PhaseTwoCtrl (
     vm.mode = mode;
 
     // SCOPE FUNCTION DEFINITION
+    vm.starter = starter;
     vm.viewChanger = viewChanger;
     vm.imageViewer = imageViewer;
     vm.questionnaire = questionnaire;
-    vm.starter = starter;
 
     return vm;
 
@@ -60,11 +60,12 @@ function PhaseTwoCtrl (
     }
 
     function viewChanger () {
+        if (pointer >= 1) {
+            $location.url("phase2/" + beautifulness + "/" + mode);
+        }
         vm.isLoading = false;
         vm.isSuccessful = true;
-        if (pointer >= images.length) {
-            $location.url("questions/" + beautifulness + "/" + mode);
-        }
+
         imageViewer();
     }
 
@@ -80,13 +81,7 @@ function PhaseTwoCtrl (
     }
 
     function questionnaire () {
-        var form = "";
-        if (mode == "a") {
-            form = images[pointer].formPhase2ActionId;
-        }
-        if (mode == "g") {
-            form = images[pointer].formPhase2GoalId;
-        }
+        var form = images[pointer].formPhase2ActionId;
         vm.formSrc = $sce.trustAsResourceUrl(
             "https://docs.google.com/forms/d/"
             + form

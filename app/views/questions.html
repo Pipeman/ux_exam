@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">Ultimo passo</h2>
+            <p>
+                Il test è finito, ti ringraziamo di aver tenuto duro fino a
+                questo punto. L'ultimo sforzo che resta da fare è rispondere a
+                qualche domanda di carattere anagrafico, dopodiché ti lasceremo
+                andare senza ulteriori domande. Trovi il questionario in questa
+                stessa pagina.
+            </p>
+            <div class="text-center">
+                <iframe ng-src="{{vm.formSrc}}"
+                        width="800"
+                        height="800"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0">Loading...</iframe>
+            </div>
+            <div class="text-center divide100">
+                <h4>Ricordati di inviare il questionario prima di procedere</h4>
+
+                <button class="btn btn-default"
+                        ng-click="vm.goToThankYouPage()">
+                    Fine
+                </button>
+            </div>
+            <div class="divide100"></div>
+        </div>
+    </div>
+</div>

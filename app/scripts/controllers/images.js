@@ -38,7 +38,7 @@ function ImagesCtrl (
     var images = ImagesSrv.getImages(beautifulness);
 
     // SCOPE VARIABLES DEFINITION
-    vm.step = 0;
+    vm.step = -1;
     vm.imagesCount = images.length;
     vm.currentImage = pointer + 1;
     vm.imageSrc = "";
@@ -49,6 +49,8 @@ function ImagesCtrl (
     vm.mode = mode;
 
     // SCOPE FUNCTION DEFINITION
+    vm.starter = starter;
+
     preloaderSrv.
         preloadImages(images).
         then(
@@ -70,9 +72,14 @@ function ImagesCtrl (
     return vm;
 
     // FUNCTION DEFINITION
+    function starter () {
+        vm.step = 0;
+    }
+
     function viewChanger () {
         if (pointer >= images.length) {
-            $location.url("phase2/" + beautifulness);
+            $location.url("test2/" + beautifulness + "/" + mode);
+            return true;
         }
         if (vm.step != maxSteps){
             vm.step++;
@@ -104,7 +111,18 @@ function ImagesCtrl (
     }
 
     function questionnaire () {
-        vm.formSrc = $sce.trustAsResourceUrl("https://docs.google.com/forms/d/" + images[pointer].formPhase1ActionId + "/viewform?embedded=true");
+        var form = "";
+        if (mode == "a") {
+            form = images[pointer].formPhase1ActionId;
+        }
+        if (mode == "g") {
+            form = images[pointer].formPhase1GoalId;
+        }
+        vm.formSrc = $sce.trustAsResourceUrl(
+            "https://docs.google.com/forms/d/"
+            + form
+            + "/viewform?embedded=true"
+        );
         pointer++;
         vm.step++;
         vm.currentImage++;

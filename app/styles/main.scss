@@ -107,6 +107,10 @@ body {
     height: 100vh;
 }
 
+.go-phase2 {
+    flex-direction: column;
+}
+
 .step-container {
     position: relative;
     top: 50%;
@@ -135,24 +139,24 @@ body {
 }
 
 .jfk-button {
-    border-radius: 2px;
+    border-radius: 3px;
     cursor: default;
     display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
-    height: 27px;
-    line-height: 27px;
-    min-width: 54px;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    line-height: 36px;
+    min-width: 88px;
     outline: 0;
-    padding: 0 15px;
     text-align: center;
+    text-transform: uppercase;
     white-space: nowrap;
 }
 
 .jfk-button-action {
     background-color: $form-azure-1;
-    background-image: linear-gradient(top, $form-azure-1, $form-azure-2);
-    border: 1px solid $form-azure-3;
+    border: $white;
     box-shadow: none;
     color: $white;
 }

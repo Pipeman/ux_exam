@@ -2,31 +2,29 @@
      ng-if="vm.step == -1">
     <div class="row">
         <div class="col-sm-12">
-            <h2 class="text-center">Test fase 1</h2>
-            <p>Adesso ti verranno mostrate 10 immagini di test che
-                servono solamente per farti abituare. Ogni immagine sarà
-                preceduta da un countdown di 3 secondi e verrà visualizzata per
-                0.5 secondi. Al termine della visualizzazione ti sarà mostrato un
-                questionario composto da una domanda; ricordati inviarlo cliccando sul
+            <h2 class="text-center">Test fase 2</h2>
+            <p>
+                Adesso ti verrà mostrata un'immagine di test per farti prendere
+                confidenza con la fase 2 dell'esperimento. L'immagine rimarrà
+                visibile a schermo per quanto tempo desideri. Scrollando dopo
+                l'immagine, troverai il questionario a cui potrai rispondere
+                continuando a guardare l'immagine. Prima di visualizzare
+                l'immagine potrai sempre rileggere il caso d'uso a cui fare
+                riferimento.
+            </p>
+            <p>
+                Come sempre, ricordati di inviare il questionario cliccando sul
                 bottone <span class="jfk-button jfk-button-action">Submit</span>
-                prima di procedere all'immagine successiva.</p>
-            <p>Prima del coutdown ti verrà presentato un possibile caso d'uso di
-                un utente reale. Leggilo attentamente e cerca di immedesimarti
-                nell'utente descritto prima di procedere. In questa fase il caso
-                d'uso sarà sempre lo stesso, ma ti verrà presentato sempre per
-                permetterti di rileggerlo nel caso tu ne abbia bisogno.</p>
+                prima di procedere all'immagine successiva.
+            </p>
             <div class="text-center">
                 <a class="btn btn-primary" ng-click="vm.starter()">Clicca qui per procedere</a>
             </div>
         </div>
     </div>
 </div>
-<div ng-if="vm.isLoading && vm.step >= 0">
-    <p class="text-center">Caricamento immagini in corso...</p>
-</div>
 <div class="container parent-container"
-     ng-if="!vm.isLoading"
-     ng-hide="vm.step == 2">
+     ng-hide="vm.step == 1">
     <div class="ready step-container"
          ng-if="vm.step == 0">
         <div class="bs-callout bs-callout-warning">
@@ -43,21 +41,20 @@
                 questo motivo.
             </p>
         </div>
-
         <div class="text-center">
-            <a class="btn btn-primary" ng-click="vm.viewChanger()">Vai all'immagine {{vm.currentImage}}/{{vm.imagesCount}}</a>
+            <a class="btn btn-primary" ng-click="vm.imageViewer()">Vai all'immagine {{vm.currentImage}}/{{vm.imagesCount}}</a>
         </div>
     </div>
+</div>
 
-    <div class="set step-container"
-         ng-if="vm.step == 1">
-        <div class="text-center">
-            <h2 class="countdown">{{vm.missingSeconds}}</h2>
-        </div>
+<div ng-if="vm.step == 1 && vm.isSuccessful">
+
+    <div class="go">
+        <img class="screenshot"
+             ng-src="{{vm.imageSrc}}">
     </div>
 
-    <div class="results text-center"
-         ng-if="vm.step == 3">
+    <div class="text-center">
         <h3>Rispondi al questionario</h3>
 
         <div>
@@ -71,19 +68,11 @@
 
         <div class="divide100">
             <h4>Ricordati di inviare il questionario prima di procedere</h4>
-
             <button class="btn btn-default"
                     ng-click="vm.viewChanger()">
                 Prossimo
             </button>
         </div>
-
         <div class="divide100"></div>
     </div>
-</div>
-
-<div class="go"
-     ng-if="vm.step == 2 && vm.isSuccessful">
-    <img class="screenshot"
-         ng-src="{{vm.imageSrc}}">
 </div>

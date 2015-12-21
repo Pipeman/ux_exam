@@ -75,13 +75,13 @@ function Test1Ctrl (
 
     // FUNCTION DEFINITION
     function starter () {
-        console.log('vm.step');
         vm.step = 0;
     }
 
     function viewChanger () {
         if (pointer >= images.length) {
             $location.url("images/" + beautifulness + "/" + mode);
+            return true;
         }
         if (vm.step != maxSteps){
             vm.step++;
