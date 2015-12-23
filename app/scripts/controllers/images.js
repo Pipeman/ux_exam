@@ -118,6 +118,9 @@ function ImagesCtrl (
         if (mode == "g") {
             form = images[pointer].formPhase1GoalId;
         }
+        if (mode == "c") {
+            form = images[pointer].formPhase1ControlId;
+        }
         vm.formSrc = $sce.trustAsResourceUrl(
             "https://docs.google.com/forms/d/"
             + form

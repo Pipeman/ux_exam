@@ -87,6 +87,9 @@ function PhaseTwoCtrl (
         if (mode == "g") {
             form = images[pointer].formPhase2GoalId;
         }
+        if (mode == "c") {
+            form = images[pointer].formPhase2ControlId;
+        }
         vm.formSrc = $sce.trustAsResourceUrl(
             "https://docs.google.com/forms/d/"
             + form
