@@ -8,9 +8,9 @@
                 confidenza con la fase 2 dell'esperimento. L'immagine rimarrà
                 visibile a schermo per quanto tempo desideri. Scrollando dopo
                 l'immagine, troverai il questionario a cui potrai rispondere
-                continuando a guardare l'immagine. Prima di visualizzare
+                continuando a guardare l'immagine. <span ng-if="vm.mode != 'c'">Prima di visualizzare
                 l'immagine potrai sempre rileggere il caso d'uso a cui fare
-                riferimento.
+                riferimento.</span>
             </p>
             <p>
                 Come sempre, ricordati di inviare il questionario cliccando sul
@@ -26,7 +26,8 @@
 <div class="container parent-container"
      ng-if="vm.step == 0">
     <div class="ready step-container">
-        <div class="bs-callout bs-callout-warning">
+        <div class="bs-callout bs-callout-warning"
+             ng-if="vm.mode != 'c'">
             <p ng-if="vm.mode == 'g'">
                 Immagina di essere uno studente che ha deciso di
                 cambiare università. Vuoi ottenere delle informazioni specifiche

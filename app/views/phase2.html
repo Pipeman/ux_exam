@@ -14,7 +14,8 @@
 <div class="container parent-container"
      ng-if="vm.step == 0">
     <div class="ready step-container">
-        <div class="bs-callout bs-callout-warning">
+        <div class="bs-callout bs-callout-warning"
+             ng-if="vm.mode != 'c'">
             <p ng-if="vm.mode == 'g'">
                 Immagina di essere uno studente che ha deciso di
                 cambiare università. Vuoi ottenere delle informazioni specifiche

@@ -31,8 +31,17 @@ function AboutCtrl ($routeParams) {
     if (mode == "a" || mode == "g") {
         vm.mode = mode;
     } else {
-        // Randomly chooses if to show beauty or ugly images
-        vm.mode = Math.random() < 0.5 ? "a" : "g";
+        // Randomly chooses if to show Action Mode, Goal Mode or Control Mode
+        var random = Math.random();
+        if (random < 0.4) {
+            vm.mode = "a";
+        }
+        if (random >= 0.4 && random < 0.8) {
+            vm.mode = "g";
+        }
+        if (random >= 0.8) {
+            vm.mode = "c";
+        }
     }
 
 }
