@@ -1,0 +1,84 @@
+//
+//      PRELOADER
+//      With courtesy of : http://cssload.net/
+//
+
+@import 'variables';
+
+.blocker {
+    background: rgb(0, 0, 0);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    opacity: .75;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.bubbling {
+    height: 50px;
+    left: 50%;
+    margin: -18px auto auto -40px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 80px;
+    z-index: 2;
+
+    span {
+        animation: bubblingG 1s infinite alternate;
+        background: $gray-4;
+        border-radius: 50px;
+        display: inline-block;
+        height: 10px;
+        margin: 25px auto;
+        vertical-align: middle;
+        width: 10px;
+    }
+
+    .bubbling-1 {
+        animation-delay: 0s;
+    }
+
+    .bubbling-2 {
+        animation-delay: .3s;
+    }
+
+    .bubbling-3 {
+        animation-delay: .6s;
+    }
+}
+
+
+@keyframes bubblingG {
+    0% {
+        background-color: $gray-4;
+        height: 10px;
+        transform: translateY(0);
+        width: 10px;
+    }
+
+    100% {
+        background-color: $gray-4;
+        height: 24px;
+        transform: translateY(-21px);
+        width: 24px;
+    }
+}
+
+.load {
+    color: $gray-4;
+    font-weight: bold;
+    height: 50px;
+    left: 50%;
+    margin: -18px auto auto -45px;
+    margin-top: -50px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100px;
+    z-index: 2;
+}

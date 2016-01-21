@@ -14,7 +14,6 @@ Test2Ctrl.$inject = [
     "$interval",
     "$sce",
     "ImagesSrv",
-    "preloaderSrv",
     "$routeParams",
     "$location"
 ];
@@ -23,7 +22,6 @@ function Test2Ctrl (
     $interval,
     $sce,
     ImagesSrv,
-    preloaderSrv,
     $routeParams,
     $location
 ) {

@@ -487,19 +487,9 @@ function ImagesSrv () {
             formPhase2ActionId: "1Yo0qMqTeg4FPXUbdoOsRUeaI-WNkpv1JZ1yYod0mMa8"
         },
         {
-            imageSrc: "images/test_images/iusspavia.jpg",
-            formPhase1ActionId: "1ZY_9CngRsPsn9QsCwcxGdsT7lfTsEeQQFK0YFGpc9NY",
-            formPhase2ActionId: "1JLzHQIqxQAZ6wIDgBSpMrNN8Vu42dJ8KXorVrESHAa0"
-        },
-        {
             imageSrc: "images/test_images/lumsa.jpg",
             formPhase1ActionId: "16fTucg3EU6azjCP4t_buGxHTE5Yhjp8OFOy9bf_kqoI",
             formPhase2ActionId: "1cxiwuxC5pXjk1pnexyS8OMK_fs9sCVADX8IrGXBkg64"
-        },
-        {
-            imageSrc: "images/test_images/polimi.jpg",
-            formPhase1ActionId: "1Hr_eVRCuaT4FoqXmnGWIN_fqXMFdoHNz3Zb525H5_u4",
-            formPhase2ActionId: "1nP6gOaUl4VTuAB2r90xlsdWtNa06y1hOQdFelK8NfHk"
         },
         {
             imageSrc: "images/test_images/polito.jpg",
@@ -507,29 +497,14 @@ function ImagesSrv () {
             formPhase2ActionId: "1KXQ3OeEWBsdht6URhisPGErYZCmIBHY4yP7bg9FKbEU"
         },
         {
-            imageSrc: "images/test_images/unibs.jpg",
-            formPhase1ActionId: "1vw3KtMbGGuXnVDp9qkbT4nRc1bHTkcCnuAYJBYI0JtU",
-            formPhase2ActionId: "1hUQrHzn_HuCn3IIB0_0GmQX4D4777HAbYjyyOvkgnBI"
-        },
-        {
             imageSrc: "images/test_images/unicatt.jpg",
             formPhase1ActionId: "1TFxZN1wLjiR94Rt7kjkRocdS6PyaH2K-j3E-VYN5He8",
             formPhase2ActionId: "1Ds_3LjdBcLLTTD_bUqVXq4-B7G5i4I_8cH-okPl89QI"
         },
         {
-            imageSrc: "images/test_images/uniurb.jpg",
-            formPhase1ActionId: "1z9IbNebepL6a3dm3hUoJlYcf46RAcwzWTCIhtPfa_G8",
-            formPhase2ActionId: "11r6oxs4iCUAzBWjDboWF_YPenHH5r5CfJcGnJp76QSs"
-        },
-        {
             imageSrc: "images/test_images/unive.jpg",
             formPhase1ActionId: "1L8jmxTnlqFr1FonBtcFH7U66jInuujYrKwOuM9dquJk",
             formPhase2ActionId: "1_XfCJljrMyoQnBvQRmPhoL9zCa2ecyJa0mtdIwef33c"
-        },
-        {
-            imageSrc: "images/test_images/universitaeuropeadiroma.jpg",
-            formPhase1ActionId: "1HOnoy5gv-fLIBO-vr8mkNYf_OLknUh3I_Bfkt70exWo",
-            formPhase2ActionId: "1sUuwIG69aO-1v_Cf73V6tgNt7_VsTung-Md7ZNjdVWo"
         },
     ];
 

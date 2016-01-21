@@ -3,6 +3,7 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
 // end bower
 @import 'variables';
+@import 'loading';
 
 .browsehappy {
     background: $gray-1;
@@ -164,4 +165,13 @@ body {
 .divide100 {
     margin-top: 100px;
     min-height: 1px;
+}
+
+.divide50 {
+    margin-top: 50px;
+    min-height: 1px;
+}
+
+.loader {
+    margin-top: 15px;
 }

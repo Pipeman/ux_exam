@@ -75,6 +75,7 @@ function preloaderSrv ($q, $rootScope) {
             this.state = this.states.LOADING;
             for (var i = 0; i < this.imageCount; i++) {
                 this.loadImageLocation(this.imageLocations[i].imageSrc);
+                
             }
             // Return the deferred promise for the load event.
             return (this.promise);

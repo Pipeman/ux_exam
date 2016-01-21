@@ -13,7 +13,6 @@ angular.module("uxExam").controller("QuestionsCtrl", QuestionsCtrl);
 QuestionsCtrl.$inject = [
     "$sce",
     "ImagesSrv",
-    "preloaderSrv",
     "$routeParams",
     "$location"
 ];
@@ -21,7 +20,6 @@ QuestionsCtrl.$inject = [
 function QuestionsCtrl (
     $sce,
     ImagesSrv,
-    preloaderSrv,
     $routeParams,
     $location
 ) {
@@ -29,7 +27,19 @@ function QuestionsCtrl (
 
     // VARIABLES INITIALIZATION
     var beautifulness = $routeParams.beautifulness;
-    var images = ImagesSrv.getImages(beautifulness);
+    var mode = $routeParams.mode;
+    var questionnaireUrls = {
+        ugly: {
+            action: "1GSWx-n9f8QIfusl1Yj3nyAe80VJQ5zWcJtz0Y7lZTXU",
+            control: "1nZpLTBYmActSxhwRfLXVCmPwqkCwb80neC8S-EFim4g",
+            goal: "1v6Wp-pPOlDxPuMrFWDXj8lvr_d81wk7sJLI2ma3Nx5U"
+        },
+        beauty:{
+            action: "1ZGHo48F5GOyw8lRt0h9KcyWHirqsgSw6_h5DQ_GOiTw",
+            control: "1aR8CMk6PZ-9E1FaHrjqKaDsv1tv9KZPLZ4tpuD-h8B0",
+            goal: "1O3B830JL4muuVKFWr9iQdPWREZKYGGGe8F3iskL_OZA"
+        }
+    }
 
     // SCOPE VARIABLES DEFINITION
     vm.formSrc = "";
@@ -50,7 +60,21 @@ function QuestionsCtrl (
     }
 
     function questionnaire () {
-        var form = "1v6Wp-pPOlDxPuMrFWDXj8lvr_d81wk7sJLI2ma3Nx5U";
+        var form;
+        if (beautifulness == "b") {
+            form = questionnaireUrls.beauty;
+        } else {
+            form = questionnaireUrls.ugly;
+        }
+        if (mode == "a") {
+            form = form.action;
+        }
+        if (mode == "c") {
+            form = form.control;
+        }
+        if (mode == "g") {
+            form = form.goal;
+        }
         vm.formSrc = $sce.trustAsResourceUrl(
             "https://docs.google.com/forms/d/"
             + form

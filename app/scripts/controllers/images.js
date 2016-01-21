@@ -47,6 +47,7 @@ function ImagesCtrl (
     vm.isLoading = true;
     vm.isSuccessful = false;
     vm.mode = mode;
+    vm.progress = 0;
 
     // SCOPE FUNCTION DEFINITION
     vm.starter = starter;
@@ -66,6 +67,9 @@ function ImagesCtrl (
                 vm.isSuccessful = false;
                 console.error("Image Failed", imageLocation);
                 console.info("Preload Failure");
+            },
+            function handleNotify( event ) {
+                vm.progress = event.percent;
             }
         );
 

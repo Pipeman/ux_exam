@@ -14,7 +14,6 @@ PhaseTwoCtrl.$inject = [
     "$interval",
     "$sce",
     "ImagesSrv",
-    "preloaderSrv",
     "$routeParams",
     "$location"
 ];
@@ -23,7 +22,6 @@ function PhaseTwoCtrl (
     $interval,
     $sce,
     ImagesSrv,
-    preloaderSrv,
     $routeParams,
     $location
 ) {

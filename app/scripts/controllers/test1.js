@@ -47,6 +47,7 @@ function Test1Ctrl (
     vm.isLoading = true;
     vm.isSuccessful = false;
     vm.mode = mode;
+    vm.progress = 0;
 
     console.log(mode);
 
@@ -68,6 +69,9 @@ function Test1Ctrl (
                 vm.isSuccessful = false;
                 console.error("Image Failed", imageLocation);
                 console.info("Preload Failure");
+            },
+            function handleNotify( event ) {
+                vm.progress = event.percent;
             }
         );
 

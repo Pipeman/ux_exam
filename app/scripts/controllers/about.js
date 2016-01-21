@@ -28,7 +28,7 @@ function AboutCtrl ($routeParams) {
         vm.beautifulness = Math.random() < 0.5 ? "b" : "u";
     }
 
-    if (mode == "a" || mode == "g") {
+    if (mode == "a" || mode == "g" || mode == "c") {
         vm.mode = mode;
     } else {
         // Randomly chooses if to show Action Mode, Goal Mode or Control Mode
